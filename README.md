@@ -13,10 +13,10 @@ Some of the features are as follows:
 4. You can share the notes
 5. You can sign in using your google account and can access all the notes anywhere.
 
-<a href="url"><img src="https://user-images.githubusercontent.com/54738022/223763959-2a709ade-0644-415a-8173-330b54d709a7.jpg" align="left" height="400" width="200" ></a>
+<a href="url"><img src="https://user-images.githubusercontent.com/54738022/223763959-2a709ade-0644-415a-8173-330b54d709a7.jpg" align="left" height="450" width="250" ></a>
 
-<a href="url"><img src="https://user-images.githubusercontent.com/54738022/223764045-5eb4e4cc-ed1b-4310-bec7-f31af2b176ac.jpg" align="left" height="400" width="200" ></a>
+<a href="url"><img src="https://user-images.githubusercontent.com/54738022/223764045-5eb4e4cc-ed1b-4310-bec7-f31af2b176ac.jpg" align="left" height="450" width="250" ></a>
 
-<a href="url"><img src="https://user-images.githubusercontent.com/54738022/223764161-465e3c32-765e-4d0c-873b-40330cadd06f.jpg" align="left" height="400" width="200" ></a>
+<a href="url"><img src="https://user-images.githubusercontent.com/54738022/223764161-465e3c32-765e-4d0c-873b-40330cadd06f.jpg" align="left" height="450" width="250" ></a>
 
-<a href="url"><img src="https://user-images.githubusercontent.com/54738022/223764255-7288ddf6-f754-4378-af5c-ff945f8199e6.jpg" align="left" height="400" width="200" ></a>
+<a href="url"><img src="https://user-images.githubusercontent.com/54738022/223764255-7288ddf6-f754-4378-af5c-ff945f8199e6.jpg" align="left" height="450" width="250" ></a>
