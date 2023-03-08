@@ -4,13 +4,11 @@ A new Flutter project.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+Notes app is used for making short text notes, update when you need them, and trash when you are done. It can be used for various functions as you can add your to-do list in this app, some important notes for future reference, etc. The app is very useful in some cases like when you want quick access to the notes.
+Some of the features are as follows:
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+1. You can add new notes.
+2. You can edit/update existing notes.
+3. You can delete any notes.
+4. You can share the notes
+5. You can sign in using your google account and can access all the notes anywhere.
