@@ -42,43 +42,48 @@ class NoteController extends GetxController{
   }
 
   Future<void> getNotes() async {
-    isLoading.value = true;
-    final String? notes = prefs.getString('notes');
-    if(notes!=null && notes != "") {
-      //fetching all shared preference notes
-      final List<NoteModel> noteModel = NoteModel.decode(notes);
-      sharedPrefNotes.clear();
-      sharedPrefNotes.addAll(noteModel);
-    }
+    try {
+      isLoading.value = true;
+      final String? notes = prefs.getString('notes');
+      if (notes != null && notes != "") {
+        //fetching all shared preference notes
+        final List<NoteModel> noteModel = NoteModel.decode(notes);
+        sharedPrefNotes.clear();
+        sharedPrefNotes.addAll(noteModel);
+      }
 
-    //fetching all notes from firebase
-    if(isUserLoggedIn()) {
-      String? uid = getFirebaseUserId();
-      if(uid!=null){
-        FirebaseFirestore.instance.collection(uid).orderBy("asc");
-        CollectionReference user = FirebaseFirestore.instance.collection(uid);
-        querySnapshot = await user.get();
-        List<Map<String, dynamic>?> documentData = querySnapshot.docs.map((e) => e.data() as Map<String, dynamic>?).toList();
-        firebaseNotes.clear();
-        for (int i = 0; i < documentData.length; i++) {
-          firebaseNotes.add(NoteModel(id: documentData[i]!['noteId'],
-              note: documentData[i]!['note'],
-              dateTime: documentData[i]!['dateTime'],
-              heading: documentData[i]!['heading']));
+      //fetching all notes from firebase
+      if (isUserLoggedIn()) {
+        String? uid = getFirebaseUserId();
+        if (uid != null) {
+          FirebaseFirestore.instance.collection(uid).orderBy("asc");
+          CollectionReference user = FirebaseFirestore.instance.collection(uid);
+          querySnapshot = await user.get();
+          List<Map<String, dynamic>?> documentData = querySnapshot.docs.map((e) => e.data() as Map<String, dynamic>?).toList();
+          firebaseNotes.clear();
+          for (int i = 0; i < documentData.length; i++) {
+            firebaseNotes.add(NoteModel(id: documentData[i]!['noteId'],
+                note: documentData[i]!['note'],
+                dateTime: documentData[i]!['dateTime'],
+                heading: documentData[i]!['heading']));
+          }
         }
       }
-    }
-    allNotes.clear();
-    allNotes.addAll(sharedPrefNotes);
-    allNotes.addAll(firebaseNotes);
+      allNotes.clear();
+      allNotes.addAll(sharedPrefNotes);
+      allNotes.addAll(firebaseNotes);
 
-    //sorting notes according to latest dates
-    allNotes.sort((date1,date2){
-      var aDate = date1.dateTime;
-      var bDate = date2.dateTime;
-      return bDate.compareTo(aDate);
-    });
-    isLoading.value = false;
+      //sorting notes according to latest dates
+      allNotes.sort((date1, date2) {
+        var aDate = date1.dateTime;
+        var bDate = date2.dateTime;
+        return bDate.compareTo(aDate);
+      });
+    }catch (e) {
+      showSnackbar("Something went wrong",true);
+    }finally {
+      isLoading.value = false;
+    }
   }
 
   Future<void> editUpdateNote(String editedNote,String heading,NoteModel note) async{
