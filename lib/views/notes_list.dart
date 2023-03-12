@@ -99,7 +99,8 @@ class NotesList extends StatelessWidget {
                     padding: const EdgeInsets.all(10.0),
                     height: Get.height,
                     child: Obx(() {
-                      return noteController.isLoading.value?const Center(child: CircularProgressIndicator(),):Column(
+                      return noteController.isLoading.value?const Center(child: CircularProgressIndicator(),):noteController.allNotes.isEmpty?
+                          const Center(child:Text("No Notes Found")):Column(
                         children: [
                           Expanded(
                             child: GridView.builder(
